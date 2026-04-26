@@ -58,7 +58,7 @@ public class AuctionRoom {
     @OneToMany(mappedBy = "auctionRoom", cascade = CascadeType.ALL)
     private List<Bid> bids;
 
-    // Optional: activity logs
+    // activity logs
     @OneToMany(mappedBy = "auctionRoom", cascade = CascadeType.ALL)
     private List<AuctionEvent> events;
 }

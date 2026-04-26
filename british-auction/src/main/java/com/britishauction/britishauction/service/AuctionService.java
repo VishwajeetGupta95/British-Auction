@@ -22,4 +22,6 @@ public interface AuctionService {
     List<AuctionResponseDTO> getClosedAuctions();
 
     List<AuctionResponseDTO> getForceClosedAuctions();
+
+    List<AuctionResponseDTO> getAllAuctions();
 }

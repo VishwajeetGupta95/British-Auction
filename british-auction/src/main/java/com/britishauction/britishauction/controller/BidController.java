@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/bids")
+@RequestMapping("/api/{id}/bids")
 public class BidController {
 
     private final AuctionService auctionService;

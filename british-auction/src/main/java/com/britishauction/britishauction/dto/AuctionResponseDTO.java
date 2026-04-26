@@ -16,6 +16,8 @@ public class AuctionResponseDTO {
 
     private Long auctionId;
     private String rfqName;
+    @JsonFormat(pattern = "yyy-MM-dd HH:mm:ss")
+    private LocalDateTime bidStartTime;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime bidCloseTime;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")

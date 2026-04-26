@@ -12,7 +12,12 @@ import java.util.Optional;
 @Repository
 public interface AuctionRoomRepository extends JpaRepository<AuctionRoom, Long> {
 
+    // get all auctions
+    List<AuctionRoom> findAll();
+
+
     Optional<AuctionRoom> findById(Long id);
+
 
     // Get all auctions by status
     List<AuctionRoom> findByStatus(AuctionStatus status);

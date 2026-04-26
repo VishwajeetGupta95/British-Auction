@@ -5,7 +5,7 @@ import api from "../services/api";
 export const fetchAuctions = createAsyncThunk(
   "auction/fetchAuctions",
   async () => {
-    const res = await api.get("/auctions/active");
+    const res = await api.get("/auctions/all");
     return res.data;
   }
 );
@@ -14,7 +14,7 @@ export const fetchAuctions = createAsyncThunk(
 export const fetchAuctionDetails = createAsyncThunk(
   "auction/fetchDetails",
   async (id) => {
-    const res = await api.get(`/auctions/${id}/details`);
+    const res = await api.get(`/auctions/${id}`);
     return res.data;
   }
 );
@@ -93,7 +93,7 @@ export const {
 } = auctionSlice.actions;
 
 export const selectAuctionDetails = createSelector(
-  (state) => state.auction.auction,
+  (state) => state.auction,
   (state) => state.auction.bids,
   (state) => state.auction.loading,
   (state) => state.auction.error,

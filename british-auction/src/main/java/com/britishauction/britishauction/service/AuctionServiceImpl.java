@@ -191,7 +191,6 @@ public class AuctionServiceImpl implements AuctionService {
             boolean extended
     ) {
         AuctionResponseDTO dto = new AuctionResponseDTO();
-
         dto.setAuctionId(auction.getId());
         dto.setRfqName(auction.getRfqName());
         dto.setBidCloseTime(auction.getBidCloseTime());
@@ -312,6 +311,15 @@ public class AuctionServiceImpl implements AuctionService {
                 .toList();
     }
 
+    @Override
+    public List<AuctionResponseDTO> getAllAuctions() {
+        LocalDateTime now = LocalDateTime.now();
+
+        return auctionRoomRepository.findAll().stream()
+                .map(this::mapToDTO)
+                .toList();
+    }
+
     public AuctionStatus calculateStatus(AuctionCreateDTO dto) {
 
         LocalDateTime now = LocalDateTime.now();
@@ -338,7 +346,7 @@ public class AuctionServiceImpl implements AuctionService {
 
         dto.setAuctionId(auction.getId());
         dto.setRfqName(auction.getRfqName());
-
+        dto.setBidStartTime(auction.getBidStartTime());
         dto.setBidCloseTime(auction.getBidCloseTime());
         dto.setForcedCloseTime(auction.getForcedCloseTime());
 

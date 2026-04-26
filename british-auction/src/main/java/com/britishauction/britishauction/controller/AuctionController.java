@@ -42,6 +42,11 @@ public class AuctionController {
         }
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<AuctionResponseDTO>> getAll() {
+        return ResponseEntity.ok(auctionService.getAllAuctions());
+    }
+
     // get all active auctions
     @GetMapping("/active")
     public ResponseEntity<List<AuctionResponseDTO>> getActive() {
