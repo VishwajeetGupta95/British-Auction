@@ -85,13 +85,13 @@ const AuctionDetailsPage = () => {
     );
   }
 
-  if (auction) {
+  if (!auction) {
     return (
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
         <Navbar />
         <div className="pt-20 px-4 text-center">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-            Auction not found
+            Auction not found {auctionId}
           </h2>
         </div>
       </div>
@@ -131,7 +131,7 @@ const AuctionDetailsPage = () => {
               <TopBidderCard topBid={topBid} />
 
               {/* Ranking List */}
-              <RankingList bids={bids} title="📋 Ranking List (L1-L100)" />
+              <RankingList bids={bids} title="Ranking List (L1-L100)" />
             </div>
 
             {/* RIGHT SIDE - Action Panel */}
@@ -152,7 +152,7 @@ const AuctionDetailsPage = () => {
               {auction.status !== "ACTIVE" && (
                 <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700 text-center">
                   <p className="text-lg font-semibold text-gray-900 dark:text-white">
-                    ✅ Auction {auction.status}
+                    Auction {auction.status}
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
                     No more bids can be placed for this auction.

@@ -1,8 +1,4 @@
-/**
- * Format currency value to USD
- * @param {number} value - The amount to format
- * @returns {string} Formatted currency string
- */
+
 export const formatCurrency = (value) => {
   if (!value) return "$0.00";
   return new Intl.NumberFormat("en-US", {
@@ -11,12 +7,6 @@ export const formatCurrency = (value) => {
   }).format(value);
 };
 
-/**
- * Format date with options
- * @param {string|Date} date - The date to format
- * @param {object} options - Intl.DateTimeFormat options
- * @returns {string} Formatted date string
- */
 export const formatDate = (date, options = {}) => {
   if (!date) return "";
   
@@ -32,11 +22,7 @@ export const formatDate = (date, options = {}) => {
   return new Intl.DateTimeFormat("en-US", defaultOptions).format(dateObj);
 };
 
-/**
- * Format time remaining in human readable format
- * @param {number} milliseconds - Time in milliseconds
- * @returns {string} Formatted time string (e.g., "2h 30m 45s")
- */
+
 export const formatTimeRemaining = (milliseconds) => {
   if (milliseconds <= 0) return "0s";
 
@@ -53,22 +39,13 @@ export const formatTimeRemaining = (milliseconds) => {
   return parts.join(" ");
 };
 
-/**
- * Truncate text to specified length with ellipsis
- * @param {string} text - Text to truncate
- * @param {number} maxLength - Maximum length
- * @returns {string} Truncated text
- */
+
 export const truncateText = (text, maxLength = 50) => {
   if (!text || text.length <= maxLength) return text;
   return text.substring(0, maxLength) + "...";
 };
 
-/**
- * Parse and validate currency input
- * @param {string} value - Currency string input
- * @returns {number|null} Parsed number or null if invalid
- */
+
 export const parseCurrency = (value) => {
   if (!value) return null;
   const parsed = parseFloat(value.replace(/[^0-9.-]+/g, ""));

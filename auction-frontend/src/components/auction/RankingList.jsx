@@ -1,12 +1,6 @@
 import { formatCurrency, formatDate } from '../../utils/helpers';
 
-/**
- * RankingList Component
- * @param {Object} props
- * @param {Array} props.bids
- * @param {string} props.title
- */
-export default function RankingList({ bids = [], title = '📋 Ranking List' }) {
+export default function RankingList({ bids = [], title = 'Ranking List' }) {
   if (!bids || bids.length === 0) {
     return (
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700">

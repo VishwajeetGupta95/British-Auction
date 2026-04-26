@@ -1,12 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getCountdown } from '../../utils/helpers';
 
-/**
- * Timer Component
- * @param {Object} props
- * @param {Date | string} props.endTime
- * @param {Function} props.onExpire
- */
+
 export default function Timer({ endTime, onExpire }) {
   const [countdown, setCountdown] = useState(getCountdown(endTime));
 

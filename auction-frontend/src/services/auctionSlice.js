@@ -85,15 +85,9 @@ const auctionSlice = createSlice({
   },
 });
 
-export const {
-  addBidRealtime,
-  updateCloseTime,
-  setAuctionStatus,
-  addEventRealtime,
-} = auctionSlice.actions;
 
 export const selectAuctionDetails = createSelector(
-  (state) => state.auction,
+  (state) => state.auction.auction,
   (state) => state.auction.bids,
   (state) => state.auction.loading,
   (state) => state.auction.error,
@@ -104,5 +98,11 @@ export const selectAuctionDetails = createSelector(
     error,
   })
 );
+export const {
+  addBidRealtime,
+  updateCloseTime,
+  setAuctionStatus,
+  addEventRealtime,
+} = auctionSlice.actions;
 
 export default auctionSlice.reducer;

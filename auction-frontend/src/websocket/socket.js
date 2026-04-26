@@ -8,7 +8,7 @@ export const connectSocket = (auctionId, onMessage) => {
   stompClient = over(socket);
 
   stompClient.connect({}, () => {
-    console.log("✅ WebSocket Connected");
+    console.log("WebSocket Connected");
 
     stompClient.subscribe(`/topic/auction/${auctionId}`, (message) => {
       const data = JSON.parse(message.body);
@@ -20,6 +20,6 @@ export const connectSocket = (auctionId, onMessage) => {
 export const disconnectSocket = () => {
   if (stompClient) {
     stompClient.disconnect();
-    console.log("❌ WebSocket Disconnected");
+    console.log("WebSocket Disconnected");
   }
 };
